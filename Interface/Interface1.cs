@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interface
 {
-    interface IMyNumber<T> where T : IMyNumber<T>
+    public interface IMyNumber<T> where T : IMyNumber<T>
     {
         T Add(T b);
         T Subtract(T b);
