@@ -29,7 +29,20 @@ namespace Interface
         }
         public MyFrac Divide(MyFrac that)
         {
+            if (this.denom == 0 || that.denom==0)
+            {
+                throw new DivideByZeroException("Impossible to divide by zero");
+            }
             return new MyFrac(nom * that.denom, denom * that.nom);
+        }
+        public int CompareTo(MyFrac that)
+        {
+            BigInteger currentValue = nom * that.denom;
+            return currentValue.CompareTo(that.nom * denom);
+        }
+        public override string ToString()
+        {
+            return $"{nom}/{denom}";
         }
     }
 }
