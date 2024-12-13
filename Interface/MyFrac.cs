@@ -15,25 +15,17 @@ namespace Interface
             this.nom = nom;
             this.denom = denom;
         }
-
-        public MyFrac Divide(MyFrac b)
-        {
-            throw new NotImplementedException();
-        }
-
-        public MyFrac Multiply(MyFrac b)
-        {
-            throw new NotImplementedException();
-        }
-
-        public MyFrac Subtract(MyFrac b)
-        {
-            throw new NotImplementedException();
-        }
-
-        MyFrac Add(MyFrac that)
+        public MyFrac Add(MyFrac that)
         {
             return new MyFrac(this.nom * that.denom + that.nom * this.denom, this.denom * that.denom);
+        }
+        public MyFrac Subtract(MyFrac that)
+        {
+            return new MyFrac(nom * that.denom - that.nom * denom, denom * that.denom);
+        }
+        public MyFrac Multiply(MyFrac b)
+        {
+            return new MyFrac(nom * b.nom, denom * b.denom);
         }
     }
 }
