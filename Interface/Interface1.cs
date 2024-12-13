@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Interface
 {
-    class Program
+    interface IMyNumber<T> where T : IMyNumber<T>
     {
-
-        static void Main(string[] args)
-        {
-
-        }
+        T Add(T b);
+        T Subtract(T b);
+        T Multiply(T b);
+        T Divide(T b);
     }
 }
