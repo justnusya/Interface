@@ -17,9 +17,16 @@ namespace Interface
         }
         public MyFrac(string nomNdenom)
         {
-            string[] data = nomNdenom.Trim().Split('/');
-            nom = BigInteger.Parse(data[0]);
-            denom = BigInteger.Parse(data[1]);
+            try
+            {
+                string[] data = nomNdenom.Trim().Split('/');
+                nom = BigInteger.Parse(data[0]);
+                denom = BigInteger.Parse(data[1]);
+            }
+            catch
+            {
+                throw new ArgumentException("Wrong input");
+            }
         }
         public MyFrac Add(MyFrac that)
         {
