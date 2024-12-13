@@ -15,6 +15,12 @@ namespace Interface
             this.nom = nom;
             this.denom = denom;
         }
+        public MyFrac(string nomNdenom)
+        {
+            string[] data = nomNdenom.Trim().Split('/');
+            nom = BigInteger.Parse(data[0]);
+            denom = BigInteger.Parse(data[1]);
+        }
         public MyFrac Add(MyFrac that)
         {
             return new MyFrac(this.nom * that.denom + that.nom * this.denom, this.denom * that.denom);

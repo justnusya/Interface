@@ -36,7 +36,7 @@ namespace Interface
         }
         static void Main(string[] args)
         {
-            TestAPlusBSquare(new MyFrac(1, 0), new MyFrac(1, 6));
+            TestAPlusBSquare(new MyFrac("1/3"), new MyFrac(1, 6));
             Console.ReadKey();
         }
     }
