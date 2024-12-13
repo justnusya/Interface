@@ -36,7 +36,22 @@ namespace Interface
         }
         static void Main(string[] args)
         {
-            TestAPlusBSquare(new MyFrac("1/abc"), new MyFrac(1, 6));
+            TestAPlusBSquare(new MyFrac("1/3"), new MyFrac(1, 6));
+            TestAPlusBSquare(new MyComplex(1, 3), new MyComplex(1, 6));
+            //sorting
+            List<MyFrac> nums = new List<MyFrac>
+            {
+                new MyFrac(1,3),
+                new MyFrac(2,6),
+                new MyFrac("10/12"),
+                new MyFrac("1/10")
+            };
+            nums.Sort();
+            Console.WriteLine("Input data after sorting:");
+            foreach(MyFrac num in nums)
+            {
+                Console.WriteLine(num);
+            }
             Console.ReadKey();
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interface
 {
-    public class MyComplex: IMyNumber<MyFrac>
+    public class MyComplex: IMyNumber<MyComplex>
     {
         double re, im;
         public MyComplex(double re, double im)
@@ -31,7 +31,7 @@ namespace Interface
         {
             return new MyComplex(this.re + that.re, this.im + that.im);
         }
-        public MyComplex Substruct(MyComplex that)
+        public MyComplex Subtract(MyComplex that)
         {
             return new MyComplex(this.re - that.re, this.im - that.im);
         }
