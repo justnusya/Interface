@@ -14,6 +14,12 @@ namespace Interface
         {
             this.nom = nom;
             this.denom = denom;
+
+            if (denom < 0)
+            {
+                this.nom = (-1) * this.nom;
+                this.denom = (-1) * this.denom;
+            }
         }
         public MyFrac(string nomNdenom)
         {
@@ -22,6 +28,12 @@ namespace Interface
                 string[] data = nomNdenom.Trim().Split('/');
                 nom = BigInteger.Parse(data[0]);
                 denom = BigInteger.Parse(data[1]);
+
+                if (denom < 0)
+                {
+                    this.nom = (-1) * this.nom;
+                    this.denom = (-1) * this.denom;
+                }
             }
             catch
             {

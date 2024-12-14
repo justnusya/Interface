@@ -41,9 +41,14 @@ namespace Interface
         }
         public MyComplex Divide(MyComplex that)
         {
+            if (that.re == 0 || that.im == 0)
+            {
+                throw new DivideByZeroException("Impossible to divide by zero");
+            }
             double denomin = that.re * that.re + that.im * that.im;
             double real = (this.re * that.re + this.im * that.im) / denomin;
             double imag = (this.im * that.re - this.re * that.im) / denomin;
+            
             return new MyComplex(real, imag);
         }
         public override string ToString()
