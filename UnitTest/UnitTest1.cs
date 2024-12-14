@@ -13,22 +13,24 @@ namespace UnitTest
         public void ApplyingNumbersToMyFrac()
         {
             MyFrac num = new MyFrac(1, 3);
-            Assert.Equals(1, num.nom);
-            Assert.Equals(3, num.denom);
+            Assert.AreEqual(1, num.nom);
+            Assert.AreEqual(3, num.denom);
         }
         [TestMethod]
         public void TestingStringConstructor()
         {
             MyFrac num = new MyFrac("2/7");
-            Assert.Equals(2, num.nom);
-            Assert.Equals(7, num.denom);
+            Assert.AreEqual(2, num.nom);
+            Assert.AreEqual(7, num.denom);
         }
         [TestMethod]
         public void AddingNums()
         {
             MyFrac num = new MyFrac(1, 7);
             MyFrac num2 = new MyFrac(3, 7);
-            Assert.Equals(new MyFrac(4, 7), num.Add(num2));
+            MyFrac res = num.Add(num2);
+            Assert.AreEqual(4, res.nom);
+            Assert.AreEqual(7, res.denom);
         } 
     }
     [TestClass]
@@ -38,8 +40,8 @@ namespace UnitTest
         public void ApplyingNumbersToComplex()
         {
             MyComplex num = new MyComplex(2,36);
-            Assert.Equals(2, num.re);
-            Assert.Equals(36, num.im);
+            Assert.AreEqual(2, num.re);
+            Assert.AreEqual(36, num.im);
         }
     }
 }
