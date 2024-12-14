@@ -30,15 +30,15 @@ namespace Interface
         }
         public MyFrac Add(MyFrac that)
         {
-            return new MyFrac(this.nom * that.denom + that.nom * this.denom, this.denom * that.denom);
+            return new MyFrac(this.nom * that.denom + that.nom * this.denom, this.denom * that.denom).Simplify();
         }
         public MyFrac Subtract(MyFrac that)
         {
-            return new MyFrac(nom * that.denom - that.nom * denom, denom * that.denom);
+            return new MyFrac(nom * that.denom - that.nom * denom, denom * that.denom).Simplify();
         }
         public MyFrac Multiply(MyFrac that)
         {
-            return new MyFrac(nom * that.nom, denom * that.denom);
+            return new MyFrac(nom * that.nom, denom * that.denom).Simplify();
         }
         public MyFrac Divide(MyFrac that)
         {
@@ -46,7 +46,7 @@ namespace Interface
             {
                 throw new DivideByZeroException("Impossible to divide by zero");
             }
-            return new MyFrac(nom * that.denom, denom * that.nom);
+            return new MyFrac(nom * that.denom, denom * that.nom).Simplify();
         }
         public int CompareTo(MyFrac that)
         {
@@ -56,6 +56,21 @@ namespace Interface
         public override string ToString()
         {
             return $"{nom}/{denom}";
+        }
+        public MyFrac Simplify()
+        {
+            BigInteger greatDiv = BigInteger.GreatestCommonDivisor(nom, denom);
+
+            nom /= greatDiv;
+            denom /= greatDiv;
+
+            if (denom < 0)
+            {
+                nom = (-1)*nom;
+                denom = (-1)*denom;
+            }
+
+            return this; 
         }
     }
 }
