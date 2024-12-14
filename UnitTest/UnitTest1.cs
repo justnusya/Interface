@@ -37,7 +37,9 @@ namespace UnitTest
         [TestMethod]
         public void ApplyingNumbersToComplex()
         {
-            ///
+            MyComplex num = new MyComplex(2,36);
+            Assert.Equals(2, num.re);
+            Assert.Equals(36, num.im);
         }
     }
 }

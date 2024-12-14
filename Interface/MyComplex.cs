@@ -8,7 +8,7 @@ namespace Interface
 {
     public class MyComplex: IMyNumber<MyComplex>
     {
-        double re, im;
+        public double re, im;
         public MyComplex(double re, double im)
         {
             this.re = re;
